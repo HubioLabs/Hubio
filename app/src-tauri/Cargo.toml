@@ -1,12 +1,12 @@
 [package]
-name = "app"
+name = "Hubio"
 version = "0.1.0"
-description = "A Tauri App"
-authors = ["you"]
-license = ""
-repository = ""
+description = "Hubio is a centralized hub for connecting, extending and customizing your software ecosystem. With Hubio, you can easily integrate mini-applications, develop new functionalities, and create unique user experiences, all in a flexible and powerful environment."
+authors = ["Maxence Cosaque"]
+license = "GPL-3.0 license"
+repository = "https://github.com/Maxanox/Hubio"
 default-run = "app"
-edition = "2021"
+edition = "2024"
 rust-version = "1.60"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
