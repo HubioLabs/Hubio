@@ -2,7 +2,7 @@
 
 Hubio is more than just a library of applications. It's a centralized hub for connecting, extending, and customizing your software ecosystem. With Hubio, you can easily integrate mini-applications, develop new features, and create unique user experiences, all within a flexible and powerful environment.
 
-## What you'll find in this repository:
+## What you'll find in this repository
 
 🚀 **Clear and Modular Source Code**: Explore our well-organized and easy-to-understand code, designed to enable effortless extension and customization.
 
@@ -12,7 +12,7 @@ Hubio is more than just a library of applications. It's a centralized hub for co
 
 💬 **Active Community**: Join our dynamic community of users and contributors to ask questions, share ideas, and collaborate on the future of Hubio.
 
-## Why choose Hubio:
+## Why choose Hubio
 
 🔗 **Limitless Connectivity**: Integrate third-party applications, external APIs, and cloud services with ease, while retaining full control over your software architecture.
 
