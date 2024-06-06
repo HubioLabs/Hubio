@@ -1,12 +1,12 @@
 [package]
-name = "Hubio"
+name = "hubio"
 version = "0.1.0"
 description = "Hubio is a centralized hub for connecting, extending and customizing your software ecosystem. With Hubio, you can easily integrate mini-applications, develop new functionalities, and create unique user experiences, all in a flexible and powerful environment."
 authors = ["Maxence Cosaque"]
 license = "GPL-3.0 license"
 repository = "https://github.com/Maxanox/Hubio"
-default-run = "app"
-edition = "2024"
+default-run = "hubio"
+edition = "2021"
 rust-version = "1.60"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -17,7 +17,7 @@ tauri-build = { version = "1.5.2", features = [] }
 [dependencies]
 serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
-tauri = { version = "1.6.5", features = [] }
+tauri = { version = "1.6.5", features = [ "window-hide", "window-unminimize", "window-show", "window-start-dragging", "window-unmaximize", "window-minimize", "window-maximize", "window-close"] }
 
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem and the built-in dev server is disabled.
