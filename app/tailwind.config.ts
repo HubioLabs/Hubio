@@ -18,7 +18,7 @@ export default {
 				preset: [
 					{
 						name: 'wintry',
-						enhancements: true,
+						enhancements: false,
 					},
 				],
 			},
