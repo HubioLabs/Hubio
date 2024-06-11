@@ -22,6 +22,6 @@
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 </script>
 
-<div class="p-5 pt-2 w-full h-full">
+<div class="p-5 pt-1 w-full h-full">
 	<slot />
 </div>
