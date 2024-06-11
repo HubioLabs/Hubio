@@ -50,6 +50,8 @@
         "fullscreen": false,
         "height": 600,
         "resizable": true,
+        "minWidth": 400,
+        "minHeight": 300,
         "title": "Hubio",
         "width": 800,
         "decorations": true,
