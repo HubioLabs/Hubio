@@ -1,17 +1,42 @@
-use tauri::Manager;
-use window_vibrancy::apply_acrylic;
+use log::info;
+
+use tauri_plugin_log::{Target, TargetKind};
+
+mod setup;
+
+use setup::{
+    window::setup_window,
+    directories::setup_directories,
+};
+
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
-  tauri::Builder::default()
-    .setup(|app| {
-      let window = app.get_webview_window("main").unwrap();
+    info!("Starting Hubio...");
 
-      apply_acrylic(&window, Some((18, 18, 18, 125)))
-          .expect("Unsupported platform! 'apply_acrylic' is only supported on Windows");
+    tauri::Builder::default()
+        .plugin(
+            tauri_plugin_log::Builder::new()
+                .targets([
+                    Target::new(TargetKind::Stdout),
+                    Target::new(TargetKind::LogDir { file_name: Some("Hubio_logs".to_string()) }),
+                    Target::new(TargetKind::Webview),
+                ])
+                .build(),
+        )
+        .plugin(tauri_plugin_fs::init())
+        .setup(|app| {
+            info!("Setting up...");
 
-      Ok(())
-    })
-    .run(tauri::generate_context!())
-    .expect("error while running tauri application");
+            setup_window(app);
+            setup_directories(app);
+
+            info!("Setup complete");
+
+            Ok(())
+        })
+        .run(tauri::generate_context!())
+        .expect("error while running tauri application");
+    
+    info!("Hubio started");
 }

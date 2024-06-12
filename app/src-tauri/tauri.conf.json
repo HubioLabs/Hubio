@@ -43,7 +43,11 @@
   "productName": "Hubio",
   "version": "0.1.0",
   "identifier": "com.tauri.dev",
-  "plugins": {},
+  "plugins": {
+    "logging": {
+      "level": "debug"
+    }
+  },
   "app": {
     "windows": [
       {
