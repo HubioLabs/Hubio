@@ -2,6 +2,17 @@
     "$schema": "../gen/schemas/desktop-schema.json",
     "identifier": "main-capability",
     "description": "Capability for the main window",
+    "local": true,
     "windows": ["main"],
-    "permissions": []
+    "permissions": [
+      "path:default",
+      "event:default",
+      "window:default",
+      "app:default",
+      "resources:default",
+      "menu:default",
+      "tray:default",
+      "fs:default",
+      "log:default"
+    ]
   }

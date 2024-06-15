@@ -2,7 +2,6 @@ use log::info;
 use tauri::{App, Manager};
 use window_vibrancy::apply_acrylic;
 
-
 pub fn setup_window(app: &App) -> () {
     let window = app.get_webview_window("main").unwrap();
 

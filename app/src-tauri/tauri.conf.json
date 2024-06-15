@@ -46,6 +46,14 @@
   "plugins": {
     "logging": {
       "level": "debug"
+    },
+    "cli": {
+      "description": "Hubio CLI",
+      "subcommands": {
+        "init": {
+          "description": "Initialize a new Hubio project"
+        }
+      }
     }
   },
   "app": {

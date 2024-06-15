@@ -1,2 +1,3 @@
-pub mod window;
+pub mod cli;
 pub mod directories;
+pub mod window;
