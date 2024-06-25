@@ -24,6 +24,14 @@ fn setup_document_dir(path_resolver: &PathResolver<Wry>) -> () {
         debug!("Hubio document dir created");
     }
 
+    let projects_dir = hubio_document_dir.join("projects");
+    if projects_dir.exists() {
+        debug!("Projects dir already exists");
+    } else {
+        std::fs::create_dir(&projects_dir).expect("Failed to create projects dir");
+        debug!("Projects dir created");
+    }
+
     debug!("Document dir: {:?}", hubio_document_dir);
 }
 

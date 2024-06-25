@@ -20,8 +20,26 @@
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
+
+	import { onMount, onDestroy } from 'svelte';
+	import { attachConsole } from '@tauri-apps/plugin-log';
+	import type { UnlistenFn } from '@tauri-apps/api/event';
+
+	let dettachConsoleCallback: Promise<UnlistenFn> = new Promise(() => {});
+
+	onMount(() => {
+		dettachConsoleCallback = attachConsole();
+	});
+
+	onDestroy(() => {
+		dettachConsoleCallback.then((dettachConsole) => {
+			dettachConsole();
+		});
+	});
 </script>
 
-<div class="p-5 pt-1 w-full h-full">
-	<slot />
+<div class="p-4 pt-0 w-full h-full">
+	<div class="bg-surface-900 w-full h-full rounded-lg bg-opacity-50 overflow-auto overflow-x-hidden">
+		<slot />
+	</div>
 </div>
