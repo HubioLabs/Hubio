@@ -46,7 +46,7 @@
 <Modal />
 
 <div class="p-4 pt-0 w-full h-full">
-	<div class="bg-surface-900 w-full h-full rounded-lg bg-opacity-50 overflow-auto overflow-x-hidden">
+	<main id="main" class="bg-surface-900 w-full h-full rounded-lg bg-opacity-50">
 		<slot />
-	</div>
+	</main>
 </div>

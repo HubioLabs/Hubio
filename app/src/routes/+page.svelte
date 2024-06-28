@@ -14,7 +14,7 @@
     }
 
     function handleInteraction() {
-        goto('/projects');
+        goto('/project');
     }
 
     onMount(() => {
