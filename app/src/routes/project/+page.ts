@@ -1,6 +1,6 @@
 import { exists, readDir, BaseDirectory, mkdir, readTextFile, writeTextFile } from '@tauri-apps/plugin-fs';
 import { error } from '@tauri-apps/plugin-log';
-import type { ProjectInfo } from '$lib/project/i_project_info';
+import type { ProjectInfo } from '$lib/project/types';
 
 let project_infos: ProjectInfo[] = [];
 

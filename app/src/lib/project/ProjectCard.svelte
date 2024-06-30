@@ -1,7 +1,7 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
     import { fade } from "svelte/transition";
-    import type { ProjectInfo } from '$lib/project/i_project_info';
+    import type { ProjectInfo } from '$lib/project/types';
 
     export let project_info: ProjectInfo;
 
@@ -16,7 +16,7 @@
 <button 
     transition:fade
     on:click={gotoProjectPage}
-    class="card card-hover overflow-hidden cursor-pointer" 
+    class="snap-center card card-hover overflow-hidden cursor-pointer" 
     style="width: {width}px; height: {height}px; background-image: url('/project/default_project_cover.webp'); background-size: cover; background-position: center;"
 >
     <div class="flex items-end h-full p-4 bg-gradient-to-t from-surface-900 to-transparent">

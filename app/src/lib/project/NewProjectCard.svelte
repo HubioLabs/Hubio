@@ -2,8 +2,9 @@
     import { fade } from "svelte/transition";
     import { exists, BaseDirectory, mkdir, writeTextFile } from '@tauri-apps/plugin-fs';
     import { info, error, warn } from '@tauri-apps/plugin-log';
-    import { getModalStore, type ModalSettings } from '@skeletonlabs/skeleton';
-    import type { ProjectInfo } from '$lib/project/i_project_info';
+    import { type ModalSettings, type ModalComponent, getModalStore } from '@skeletonlabs/skeleton';
+    import type { ProjectInfo } from '$lib/project/types';
+    import NewProjectModal from '$lib/modals/NewProjectModal.svelte';
 
     export let project_infos: ProjectInfo[] = [];
 
@@ -12,27 +13,16 @@
 
     const modalStore = getModalStore();
 
-    const newProjectModal: ModalSettings = {
-        type: 'prompt',
-        // Data
-        title: 'Project Name',
-        body: 'Provide the project name in the field below.',
-        // Populates the input value and attributes
-        value: '',
-        valueAttr: { type: 'text', minlength: 1, maxlength: 16, required: true },
-        // Returns the updated response value
-        response: async (r: string) => await createProject(r),
+    const modalComponent: ModalComponent = { ref: NewProjectModal };
+
+    const modal: ModalSettings = {
+        type: 'component',
+        component: modalComponent,
+        response: (project_info: ProjectInfo) => createProject(project_info)
     };
 
-    async function createProject(name: string) {
+    async function createProject(new_project_info: ProjectInfo) {
         info('Creating a new project');
-
-        let new_project_info: ProjectInfo = {
-            name: name,
-            description: 'A new project',
-            created: new Date().toISOString(),
-            modified: new Date().toISOString()
-        };
 
         const projectsExists = await exists('Hubio/projects', { baseDir: BaseDirectory.Document });
         if (!projectsExists) {
@@ -60,7 +50,7 @@
     }
 
     async function newProject() {
-        modalStore.trigger(newProjectModal);
+        modalStore.trigger(modal);
     }
 </script>
 
@@ -68,7 +58,7 @@
     transition:fade
     on:click={newProject} 
     type="button" 
-    class="card card-hover variant-ghost-tertiary"
+    class="snap-center card card-hover variant-ghost-tertiary"
     style="width: {width}px; height: {height}px;"
 >
     <div class="flex justify-center items-center h-full">

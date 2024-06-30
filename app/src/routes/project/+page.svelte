@@ -5,7 +5,7 @@
     export let data;
 </script>
 
-<div class="card-container overflow-y-auto max-h-full">
+<div class="card-container snap-mandatory snap-y scroll-smooth overflow-y-auto max-h-full justify-center">
     {#if data.project_infos}
         {#each data.project_infos as project_info}
             <ProjectCard project_info={project_info} />

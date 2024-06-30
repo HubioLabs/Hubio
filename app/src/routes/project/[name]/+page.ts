@@ -1,6 +1,6 @@
 import { exists, BaseDirectory, readTextFile } from '@tauri-apps/plugin-fs';
 import { error } from '@tauri-apps/plugin-log';
-import type { ProjectInfo } from '$lib/project/i_project_info.js';
+import type { ProjectInfo } from '$lib/project/types.js';
 
 export async function load({ params }) {
     const projectsExists = await exists('Hubio/projects', { baseDir: BaseDirectory.Document });
