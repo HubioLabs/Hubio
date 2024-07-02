@@ -1,5 +1,6 @@
 <script lang="ts">
     import { fade } from "svelte/transition";
+    import { invoke } from "@tauri-apps/api/core";
     import { exists, BaseDirectory, mkdir, writeTextFile } from '@tauri-apps/plugin-fs';
     import { info, error, warn } from '@tauri-apps/plugin-log';
     import { type ModalSettings, type ModalComponent, getModalStore } from '@skeletonlabs/skeleton';
@@ -43,6 +44,10 @@
             error(`Failed to create project: ${e}`);
             return;
         }
+
+        await invoke('new_project', { projectInfo: new_project_info }).catch((e) => {
+            error(`Failed to invoke new_project: ${e}`);
+        });
 
         // Update the project_infos list
         // Using a reactive assignment to trigger a re-render with the each block

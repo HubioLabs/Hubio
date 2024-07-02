@@ -23,7 +23,7 @@ export enum ProjectType {
     /**
      * SvelteKit configured with JavaScript and JSDoc.
      */
-    CheckJS = "JavaScript with JSDoc"
+    CheckJS = "CheckJS"
 }
 
 /**
@@ -41,17 +41,17 @@ export interface ProjectUtilities {
  * Choose "custom" for a custom theme.
  */
 export enum SkeletonTheme {
-    Skeleton = "skeleton",
-    Wintry = "wintry",
-    Modern = "modern",
-    Hamlindigo = "hamlindigo",
-    Rocket = "rocket",
-    Sahara = "sahara",
-    GoldNouveau = "gold-nouveau",
-    Vintage = "vintage",
-    Seafoam = "seafoam",
-    Crimson = "crimson",
-    Custom = "custom"
+    Skeleton = "Skeleton",
+    Wintry = "Wintry",
+    Modern = "Modern",
+    Hamlindigo = "Hamlindigo",
+    Rocket = "Rocket",
+    Sahara = "Sahara",
+    GoldNouveau = "GoldNouveau",
+    Vintage = "Vintage",
+    Seafoam = "Seafoam",
+    Crimson = "Crimson",
+    Custom = "Custom"
 }
 
 /**
