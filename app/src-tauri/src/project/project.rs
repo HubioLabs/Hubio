@@ -1,3 +1,4 @@
+use tauri::Manager;
 use tauri_plugin_shell::ShellExt;
 use log::{debug, error, info};
 
@@ -18,7 +19,7 @@ pub async fn new_project(app_handle: tauri::AppHandle, project_info: ProjectInfo
                 "skeleton-app@latest",
                 "--quiet",
                 "--name", "app", 
-                "--path", project_info.path.as_str(),
+                "--path", format!("{}/Hubio/projects/", app_handle.path().document_dir().unwrap().to_str().unwrap()).as_str(),  // TODO: handle possible error instead of unwrap
                 "--types", project_info.types.to_string().as_str(),
                 // Utilities
                 "--eslint", project_info.utilities.eslint.to_string().as_str(),

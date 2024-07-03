@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { SvelteComponent } from 'svelte';
+	import { documentDir } from '@tauri-apps/api/path';
 	import { getModalStore } from '@skeletonlabs/skeleton';
     import { ProjectType, type ProjectInfo, type ProjectUtilities, type ProjectSkeletonOptions, SkeletonTheme } from '$lib/project/types';
 	import { RadioGroup, RadioItem } from '@skeletonlabs/skeleton';

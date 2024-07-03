@@ -9,7 +9,6 @@ pub struct ProjectInfo {
     pub description: String,
     pub created: String,
     pub modified: String,
-    pub path: String,
     pub types: ProjectType,
     pub utilities: ProjectUtilities,
     pub skeleton_options: ProjectSkeletonOptions,
