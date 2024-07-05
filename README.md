@@ -1,3 +1,5 @@
+![Uploading hubio_main_window.png…]()
+
 # Welcome to Hubio - The Ultimate Application Integration Platform!
 
 Hubio is more than just a library of applications. It's a centralized hub for connecting, extending, and customizing your software ecosystem. With Hubio, you can easily integrate mini-applications, develop new features, and create unique user experiences, all within a flexible and powerful environment.
