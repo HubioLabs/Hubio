@@ -1,4 +1,4 @@
-![Uploading hubio_main_window.png…]()
+![Hubio Main Window](https://github.com/HubioLabs/Hubio/assets/35532268/a54d0fe1-2057-4419-93b5-d6d503fc9d64)
 
 # Welcome to Hubio - The Ultimate Application Integration Platform!
 
