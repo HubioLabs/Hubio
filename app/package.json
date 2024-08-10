@@ -38,6 +38,10 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@tauri-apps/plugin-fs": "2.0.0-beta.6"
+		"@tauri-apps/api": "2.0.0-rc.0",
+		"@tauri-apps/cli": "2.0.0-rc.0",
+		"@tauri-apps/plugin-fs": "2.0.0-beta.6",
+		"@tauri-apps/plugin-log": "2.0.0-rc.0",
+		"lucide-svelte": "^0.424.0"
 	}
 }

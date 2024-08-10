@@ -1,12 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="w-full h-full">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- That's for the window-vibrancy -->
+		<style>
+			html,
+			body {
+			  background: transparent;
+			  overflow: hidden;
+			}
+		</style>
 		%sveltekit.head%
 	</head>
-	<body data-sveltekit-preload-data="hover" data-theme="cerberus">
+	<body data-sveltekit-preload-data="hover" data-theme="cerberus" class="w-full h-full">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>

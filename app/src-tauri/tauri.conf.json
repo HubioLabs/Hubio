@@ -1,12 +1,36 @@
 {
   "productName": "Hubio",
-  "version": "0.1.0",
+  "version": "0.10.0",
   "identifier": "com.tauri.dev",
   "build": {
-    "frontendDist": "../public",
+    "frontendDist": "../build",
     "devUrl": "http://localhost:5173",
     "beforeDevCommand": "pnpm run dev",
     "beforeBuildCommand": "pnpm run build"
+  },
+  "plugins": {
+    "structure-manager": {
+      "document": {
+        "files": [],
+        "dirs": {
+          "Hubio": {
+            "options": {
+              "repair": true
+            },
+            "files": [],
+            "dirs": {
+              "projects": {
+                "options": {
+                  "repair": true
+                },
+                "files": [],
+                "dirs": {}
+              }
+            }
+          }
+        }
+      }
+    }
   },
   "app": {
     "windows": [
@@ -14,8 +38,12 @@
         "title": "Hubio",
         "width": 800,
         "height": 600,
+        "minWidth": 800,
+        "minHeight": 600,
         "resizable": true,
-        "fullscreen": false
+        "fullscreen": false,
+        "transparent": true,
+        "decorations": false
       }
     ],
     "security": {
