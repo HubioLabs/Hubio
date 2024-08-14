@@ -3,3 +3,11 @@
 @tailwind utilities;
 
 body { @apply bg-transparent dark:bg-transparent; }
+
+@layer utilities { 
+    .preset-opacity-20 { --tw-bg-opacity: 0.2; }
+    .preset-opacity-20:where(.dark, .dark *) { --tw-bg-opacity: 0.2; } 
+
+    .preset-opacity-50 { --tw-bg-opacity: 0.5; }
+    .preset-opacity-50:where(.dark, .dark *) { --tw-bg-opacity: 0.5; } 
+}
