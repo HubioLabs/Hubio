@@ -1,16 +1,19 @@
-use tauri::{App, Manager};
+use tauri::{App, Manager, generate_handler};
 use tauri_plugin_log::{Target, TargetKind};
 use tauri_plugin_structure_manager::StructureManagerExt;
 
 use window_vibrancy::apply_acrylic;
 
-use log::{info, trace};
+use log::{info, debug};
+
+mod models;
+mod commands;
 
 fn structure_verification(app: &mut App) -> Result<(), String> {
     info!("Structure Verification ...");
 
     app.verify_document()?;
-    trace!("Document OK");
+    debug!("Document OK");
 
     info!("Structure Verification DONE");
     Ok(())
@@ -30,6 +33,7 @@ fn window_setup(app: &mut App) {
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
+        .plugin(tauri_plugin_shell::init())
         .plugin(
             tauri_plugin_log::Builder::new()
                 .targets([
@@ -37,10 +41,14 @@ pub fn run() {
                     Target::new(TargetKind::LogDir { file_name: None }),
                     Target::new(TargetKind::Webview),
                 ])
+                .level(log::LevelFilter::Debug)
                 .build(),
         )
         .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_structure_manager::init())
+        .invoke_handler(generate_handler![
+            commands::create_project
+        ])
         .setup(|app| {
             info!("Hubio Setup ...");
 

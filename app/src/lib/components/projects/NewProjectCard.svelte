@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import { ProjectManager, type Project } from '$lib';
+	import { ProjectManager, ProjectTemplate, type Project } from '$lib';
 	import { SquarePlus } from 'lucide-svelte';
 
 	export const project_infos: Project[] = [];
@@ -10,7 +10,23 @@
 
 	let showModal: boolean = false;
 
+	let projectName: string = '';
 	let projectManager: ProjectManager = ProjectManager.Cargo;
+	let projectTemplate: ProjectTemplate = ProjectTemplate.Vanilla;
+
+	async function createProject() {
+		const project: Project = {
+			name: 'New Project',
+			description: '',
+			thumbnail: null,
+			created: new Date(),
+			modified: new Date(),
+			manager: projectManager,
+			template: projectTemplate,
+		};
+
+		project_infos.push(project);
+	}
 </script>
 
 <button
@@ -34,12 +50,34 @@
 		<div class="card space-y-4 preset-tonal-surface p-4">
 			<!-- Project Name Input -->
 			<label class="label">
-				<span class="label-text">Name</span>
-				<input class="input" type="text" placeholder="Name" />
+				<span class="label-text">Project Name</span>
+				<input class="input" type="text" placeholder="project name" bind:value={projectName}/>
 			</label>
+			<!-- Project Template Selector -->
+			<label class="label">
+				<span class="label-text">Project Template</span>
+				<select class="select" bind:value={projectTemplate}>
+					<option value={ProjectTemplate.Vanilla}>Vanilla</option>
+					<option value={ProjectTemplate.VanillaTS}>Vanilla (TypeScript)</option>
+					<option value={ProjectTemplate.Vue}>Vue</option>
+					<option value={ProjectTemplate.VueTS}>Vue (TypeScript)</option>
+					<option value={ProjectTemplate.Svelte}>Svelte</option>
+					<option value={ProjectTemplate.SvelteTS}>Svelte (TypeScript)</option>
+					<option value={ProjectTemplate.React}>React</option>
+					<option value={ProjectTemplate.ReactTS}>React (TypeScript)</option>
+					<option value={ProjectTemplate.Solid}>Solid</option>
+					<option value={ProjectTemplate.SolidTS}>Solid (TypeScript)</option>
+					<option value={ProjectTemplate.Yew}>Yew</option>
+					<option value={ProjectTemplate.Leptos}>Leptos</option>
+					<option value={ProjectTemplate.Sycamore}>Sycamore</option>
+					<option value={ProjectTemplate.Angular}>Angular</option>
+					<option value={ProjectTemplate.Preact}>Preact</option>
+					<option value={ProjectTemplate.PreactTS}>Preact (TypeScript)</option>
+					<option value={ProjectTemplate.Blazor}>Blazor</option>
+				</select>
 			<!-- Project Manager Selector -->
 			<label class="label">
-				<span class="label-text">Select</span>
+				<span class="label-text">Project Manager</span>
 				<select class="select" bind:value={projectManager}>
 					<option value={ProjectManager.Cargo}>Cargo</option>
 					<option value={ProjectManager.Pnpm}>Pnpm</option>
@@ -48,6 +86,7 @@
 					<option value={ProjectManager.Bun}>Bun</option>
 					<option value={ProjectManager.DotNet}>DotNet</option>
 				</select>
+			</label>
 			</label>
             <!-- Modal Controls -->
             <div class="flex flex-row gap-4">
